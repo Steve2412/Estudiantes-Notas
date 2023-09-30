@@ -105,6 +105,7 @@ if ((isset($_POST['cedula']) && isset($_POST['nombre']) && isset($_POST['nota_ma
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Act. 2</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/tabla.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
@@ -141,34 +142,49 @@ if ((isset($_POST['cedula']) && isset($_POST['nombre']) && isset($_POST['nota_ma
 
     </form>
 
-<h2>Lista Alumnos</h2>
+    <div class="container">
+                      
+                                
+                      <div class="row">
+                      <div class="col-12">
+                          <div class="card">
+                              <div class="card-body text-center">
+                                  <h5 class="card-title m-b-0">Lista de Alumnos</h5>
+                              </div>
+                                  <div class="table-responsive">
+                                      <table class="table">
+                                          <thead class="thead-light">
+                                              <tr>
+                                              <th scope="col">Cedula</th>
+                                              <th scope="col">Nombre</th>
+                                              <th scope="col">Nota de Matematica</th>
+                                              <th scope="col">Nota de Fisica</th>
+                                              <th scope="col">Nota de Programacion</th>
+                                              </tr>
+                                          </thead>
+                                          <tbody class="customtable">
+                                          <?php
+                                            foreach ($lista_alumnos as $estudiante) {
+                                              echo "<tr>";
+                                              echo "<td>", $estudiante->get_Cedula(), "</td>";
+                                              echo "<td>", $estudiante->get_Nombre(), "</td>";
+                                              echo "<td>", $estudiante->get_nota_fisica(), "</td>";
+                                              echo "<td>", $estudiante->get_nota_mate(), "</td>";
+                                              echo "<td>", $estudiante->get_nota_progra(), "</td>";
+                                              echo "</tr>";
 
-    <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Cedula</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Nota de Matematica</th>
-      <th scope="col">Nota de Fisica</th>
-      <th scope="col">Nota de Programacion</th>
-    </tr>   
-  </thead>
-  <tbody>
-  <?php
-          foreach ($lista_alumnos as $estudiante) {
-            echo "<tr>";
-            echo "<td>", $estudiante->get_Cedula(), "</td>";
-            echo "<td>", $estudiante->get_Nombre(), "</td>";
-            echo "<td>", $estudiante->get_nota_fisica(), "</td>";
-            echo "<td>", $estudiante->get_nota_mate(), "</td>";
-            echo "<td>", $estudiante->get_nota_progra(), "</td>";
-            echo "</tr>";
-
-          }
-
-          ?>
-  </tbody>
-</table>
+                                            }
+  
+                                          ?>
+                                              </tr>
+                                          </tbody>
+                                      </table>
+                                  </div>
+                          </div>
+                      </div>
+                  </div>
+  
+                     </div> 
 <br><br>
 
 <div>
